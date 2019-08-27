@@ -1,0 +1,23 @@
+from collections import deque
+
+n_k = [int(i) for i in input().split()]
+
+n=n_k[0]
+k=n_k[1]
+
+d = deque([    0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 ,    ]) 
+
+for j in range(k):
+  if n == 0 :
+    break
+  rts=str(n);
+  units=rts[-1]
+  if units == '0':
+    n=int(rts[:-1]) 
+  else :
+    pos=d.index(int(units))
+    d.rotate(1)	
+    n=int(rts[:-1]+str(d[pos]))
+  	
+
+print(n)
